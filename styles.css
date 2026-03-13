@@ -1,0 +1,479 @@
+body {
+  font-family: "Kosugi Maru", sans-serif;
+  margin: 0;
+  background: #45281f;
+  color: white;
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
+/* ロゴや見出しに英語フォントを使う場合 */
+h1.logo {
+  font-family: "Pacifico", cursive;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Pacifico", cursive; /* 追加 */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  background: #411a0b;
+  z-index: 1000;
+}
+
+header {
+  background: #411a0b;
+  padding: 20px;
+  border-bottom-left-radius: 40px; /* 左下の丸み */
+  border-bottom-right-radius: 40px; /* 右下の丸み */
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.logo span {
+  display: inline-block;
+  animation: breadBounce 2s infinite;
+}
+
+@keyframes breadBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.nav-menu {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s, transform 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: #be270c;
+  transform: translateX(-5px);
+}
+
+/* hamburger */
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.hamburger span:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s ease;
+  transform-origin: center; /* ←回転の中心を中央に */
+}
+
+/* activeクラスが付いたときのアニメーション */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0; /* 真ん中の線は消す */
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 5px 15px; /* 上下を小さく、左右も少し狭める */
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+  }
+  .nav-menu {
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    width: 100%;
+    align-items: center; /* 子要素を中央寄せ */
+  }
+  .nav-menu.active {
+    max-height: 500px;
+  }
+  .menu-layout {
+    flex-direction: column; /* 縦並びに切り替え */
+    align-items: center; /* 中央寄せ */
+    gap: 15px; /* 縦間隔 */
+  }
+  .menu-card {
+    width: 80%; /* 幅を画面サイズに合わせる */
+  }
+}
+
+/* hero */
+
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  margin-bottom: 15px;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.hero-text {
+  position: absolute;
+  z-index: 2;
+  color: white;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: bold; /* 文字を太字にする */
+  text-decoration: none; /* 下線を消す */
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #9d1708;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ee8f1b;
+  transform: scale(1.05);
+}
+
+/* menu */
+
+#menu {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.menu-layout {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tab {
+  background: #fff3e0;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #5a2f1f;
+}
+
+.tab:hover {
+  background: #ffd8a8;
+  transform: translateX(5px);
+}
+
+.tab.active {
+  background: #ff8c42;
+  color: white;
+}
+
+.tab {
+  box-shadow: 0 3px 0 #d6a36a;
+}
+
+.menu-group {
+  display: flex;
+  gap: 50px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.menu-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.menu-card {
+  background: #a83b10;
+  padding: 30px;
+  border-radius: 12px;
+  width: 200px;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.menu-group {
+  display: none;
+}
+
+.menu-group.active {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .tabs {
+    display: inline-block;
+    gap: 10px;
+    justify-content: center; /* 横並びの中央寄せ */
+  }
+  .tab:hover {
+    background: #ffd8a8;
+    transform: translateY(5px);
+  }
+  .menu-group {
+    flex-direction: column; /* 縦並びに切り替え */
+    align-items: center; /* 中央寄せ */
+    gap: 15px; /* 縦間隔 */
+  }
+}
+
+/* about */
+#about {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.about-naka {
+  padding: 40px 20px;
+  display: flex; /* Flexで横並び */
+  gap: 30px; /* カラム間の隙間 */
+  justify-content: center; /* 左右の中央寄せ */
+  align-items: center; /* 高さ方向の中央揃え */
+  flex-wrap: wrap; /* 画面が狭くなったら縦並びに */
+  text-align: center; /* スマホでの文章中央寄せ用 */
+}
+
+.about-naka img {
+  width: 400px; /* 正方形にする */
+  height: 400px; /* 正方形にする */
+  border-radius: 50%; /* 円形にする */
+  object-fit: cover; /* 画像を切り抜いて枠に収める */
+}
+
+.fade-in-left {
+  opacity: 0; /* 最初は透明 */
+  transform: translateX(-50px); /* 左にずらす */
+  animation: fadeInLeft 1s forwards; /* 1秒でアニメーション */
+}
+
+/* 文章用 */
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(50px); /* 右にずらす */
+  animation: fadeInRight 1s forwards;
+}
+
+/* アニメーションの内容 */
+@keyframes fadeInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0); /* 元の位置に戻す */
+  }
+}
+
+@keyframes fadeInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* gallery */
+#gallery {
+  padding: 40px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ギャラリー横スクロール */
+.gallery-container {
+  display: flex;
+  overflow-x: hidden; /* 横スクロールを非表示に */
+  gap: 15px;
+  padding: 10px 0;
+  scroll-behavior: smooth; /* スムーズスクロール */
+}
+
+.gallery-track {
+  display: flex;
+  gap: 15px;
+  animation: scroll 40s linear infinite; /* 自動スライド */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  } /* trackの半分移動で無限ループ */
+}
+
+.gallery-img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* モーダル */
+.modal {
+  display: none; /* 最初は非表示 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* contact */
+
+#contact {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #9d1708;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #ee8f1b;
+}
+
+/* footer */
+footer {
+  padding: 40px 20px;
+  text-align: center;
+}

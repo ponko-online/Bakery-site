@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <title>Gallery | Bakery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="logo">
+        <a href="index.html">Bakery <span>🍞</span></a>
+      </h1>
+      <div id="hamburger" class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <nav id="nav-menu" class="nav-menu">
+        <a href="index.html" class="nav-link"><span>Home</span></a>
+        <a href="menu.html" class="nav-link"><span>Menu</span></a>
+        <a href="about.html" class="nav-link"><span>About</span></a>
+        <a href="gallery.html" class="nav-link"><span>Gallery</span></a>
+        <a href="contact.html" class="nav-link"><span>Contact</span></a>
+      </nav>
+    </header>
+
+    <section id="gallery">
+      <h2>ギャラリー</h2>
+      <div class="gallery-container">
+        <div class="gallery-track">
+          <img src="images/menu1.jpg" alt="クロワッサン" class="gallery-img" />
+          <img src="images/menu2.jpg" alt="フランスパン" class="gallery-img" />
+          <img src="images/menu3.jpg" alt="あんぱん" class="gallery-img" />
+          <img src="images/menu4.jpg" alt="メロンパン" class="gallery-img" />
+          <img
+            src="images/menu5.jpg"
+            alt="ウインナーパン"
+            class="gallery-img"
+          />
+          <img src="images/menu6.jpg" alt="カレーパン" class="gallery-img" />
+          <!-- 同じ画像を複製すると自動でスライドアニメーションができます -->
+          <!-- 画像をもう一度複製して無限ループ用に追加 -->
+          <img src="images/menu1.jpg" alt="クロワッサン" class="gallery-img" />
+          <img src="images/menu2.jpg" alt="フランスパン" class="gallery-img" />
+          <img src="images/menu3.jpg" alt="あんぱん" class="gallery-img" />
+          <img src="images/menu4.jpg" alt="メロンパン" class="gallery-img" />
+          <img
+            src="images/menu5.jpg"
+            alt="ウインナーパン"
+            class="gallery-img"
+          />
+          <img src="images/menu6.jpg" alt="カレーパン" class="gallery-img" />
+        </div>
+      </div>
+      <!-- モーダル -->
+      <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-img" src="" alt="" />
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Bakery</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
